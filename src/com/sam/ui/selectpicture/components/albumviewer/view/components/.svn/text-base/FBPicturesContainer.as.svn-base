@@ -1,0 +1,95 @@
+package com.sam.ui.selectpicture.components.albumviewer.view.components
+{
+	import com.sam.ui.selectpicture.components.albumviewer.AlbumViewerEvents;
+	
+	import flash.events.Event;
+	import flash.text.Font;
+	import flash.text.TextField;
+	
+	import sm.fmwk.ui.button.ButtonsContainer;
+	import sm.fmwk.ui.button.events.ButtonEvent;
+	import sm.utils.display.text.GetTextField;
+	import sm.utils.events.CustomEvent;
+	
+	public class FBPicturesContainer extends ButtonsContainer
+	{
+		private const MARGEN_X:uint = 10;
+		private const MARGEN_Y:uint = 8;
+		private const V_MAX_BY_LINE:uint = 4;
+		private var cont:uint;
+		private var lines:uint;
+		
+		public function FBPicturesContainer()
+		{
+			super();
+			this.addEventListener(Event.ADDED_TO_STAGE,unlockButtons);
+		}
+		private function unlockButtons(e:Event):void
+		{
+			this.unlock();
+		}
+		public function addFBButton(button:FbPicture):void
+		{			
+			if(!button.isAlbum)
+			{
+				button.x = cont * FbPicture.ANCHO + MARGEN_X * cont + 12;
+				button.y = lines * FbPicture.ALTO + MARGEN_Y * lines + 10;				
+				cont++;
+				if(cont==V_MAX_BY_LINE)
+				{
+					lines++;
+					cont=0;
+				}
+			}
+			else
+			{				
+				button.y = cont * FbPicture.ALTO + MARGEN_Y * cont;
+				cont++;
+			}			
+			
+			buttons.push(button);
+			addChild(button);
+		}
+		public function init():void
+		{
+			this.addClickListeners();
+			this.unlock();
+		}
+		public function noData():void
+		{
+			var t:TextField = GetTextField.getTextField(15,0xFF0000,"Bliss Pro");
+			t.text = "No existen albumes";
+			t.y = 30;
+			t.x = 100;
+			addChild(t);
+		}
+		override protected function onButtonClicked():void
+		{
+			if(this.currentBtn) this.currentBtn.active = true;
+			
+			var params:Object;
+			var type:String;
+			var btn:FbPicture = this._currentTarget as FbPicture;
+			
+			if(btn.isAlbum)
+			{
+				params = {aid:btn.name.substr(1,btn.name.length-1)};
+				type = AlbumViewerEvents.GET_PICTURES_BY_ALBUM_ID_EVENT;
+			}
+			else
+			{
+				params = {source:btn.originalPicturePath};
+				type = AlbumViewerEvents.GET_PICTURE_EVENT;
+			}
+			this.currentBtn = this.currentTarget;
+			dispatchEvent(new CustomEvent(type,params));			
+		}
+		override public function unlock(event:ButtonEvent=null):void
+		{
+			if(this.currentBtn)this.currentBtn.active = true;
+			super.unlock();
+						
+		}
+			
+	}
+}

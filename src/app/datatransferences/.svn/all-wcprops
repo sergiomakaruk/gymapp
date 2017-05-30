@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnAS3/!svn/ver/98/medicus_scrum/src/app/datatransferences
+END
+DataTransferenceTypes.as
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnAS3/!svn/ver/101/medicus_scrum/src/app/datatransferences/DataTransferenceTypes.as
+END
+AppParseJSON.as
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnAS3/!svn/ver/101/medicus_scrum/src/app/datatransferences/AppParseJSON.as
+END
+AppDataTransference.as
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnAS3/!svn/ver/102/medicus_scrum/src/app/datatransferences/AppDataTransference.as
+END

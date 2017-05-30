@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	<example value="testPath|seviceName|extention|Message|forceNotHasToEncode"/>	
+
+	<validarProfe value="services/ValidarProfe/index|ValidarProfe|xml|Cargando datos de profesor..."/>
+	<buscaSocio value="services/BuscaSocio/index|BuscaSocio|xml|Cargando datos de socio..."/>	
+	<GetUserPhoto value="services/FotoSocio/index|FotoSocio|xml|Cargando foto de socio..."/>	
+	<historialRutinas value="services/Historial/index|Historial|xml|Cargando rutinas..."/>
+	<getRutina value="services/RecuperarRutina2/index|RecuperarRutina2|xml|Cargando rutina..."/>
+	<getCopyRutina value="services/RecuperarRutina2/index|RecuperarRutina2|xml|Cargando rutina..."/>
+	<RecuperarRutinaBase value="|RecuperarRutinaBase|xml|Cargando rutina..."/>
+	<RecuperarRutinaBase_2 value="|RecuperarRutinaBase2|xml|Cargando rutina..."/>
+	<RecuperarMenuRutinaBase value="|GetRutinaDefaultMenu|xml|Cargando menu de rutina base..."/>
+	<RecuperarRutinaBaseParaTemplate value="|RecuperarRutinaBase|xml|Cargando rutina..."/>
+	<RecuperarRutinaBaseParaTemplate2 value="|RecuperarRutinaBase2|xml|Cargando rutina..."/>
+	<EditarNombreRutinaDefault value="|EditarNombreRutinaDefault|xml|Cambiando nombre..."/>
+	<AgregaEjercicioARutina value="|AgregaEjercioARutina2|xml|Guardando Ejercicio..."/>
+	<EliminarEjercicioRutina value="|EliminarEjercioRutina|xml|Eliminando Ejercicio..."/>
+	<CrearRutinaDefault value="|CrearRutinaDefault|xml|Creando Plan de Entrenamiento..."/>
+	<CrearRutinaDefault2 value="|CrearRutinaDefault2|xml|Creando Plan de Entrenamiento..."/>
+	<CrearRutina value="|CrearRutina|xml|Creando Plan de Entrenamiento..."/>
+	<ActualizarEmail value="|ActualizarEmail|xml|Actualizando email..."/>
+	
+	<FuerzaEnvioEmail value="http://plandeentrenamiento.com.ar/send|FuerzaEnvioEmail|php|Enviando email...|true"/>
+	
+	<EnviarEmailUsuario value="http://plandeentrenamiento.com.ar/sendEmailToUser|EnviarEmailUsuario|php|Enviando email...|true"/>
+	
+	
+	<getVersionUpdateInfo value="detalle_de_actualizacion_de_version||csv|Cargando datos...|true"/>
+	<getAllUsers value="ActividadDeUsuarios||txt|Cargando datos...|true"/>
+	<getAllExercises value="staticws/ejercicios_2016|getEjercicios|csv|Cargando datos...|true"/>
+	<getInit value="staticws/getInit/index|getEjercicios|php|Cargando datos...|true"/>
+		
+	<getDisenio value="|data/disenioData|xml|Cargando datos..."/>	
+
+</services>

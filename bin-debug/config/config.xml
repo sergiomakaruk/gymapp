@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<base>
+		<main>
+			<appKeys>
+				<applicationName value="App" />			
+				<appID value="117216225090240"/>	
+				<exit value="arg"/>			
+			</appKeys>
+			<appConfig>
+				<url value="http://american.dynalias.org:8888/wsas/service1.asmx?WSDL"/>	
+				<contextType value="WEB"/>
+				<hasContext value="true"/> <!-- ------ for Loader context -->
+				<hasToEncode value="true"/>
+				
+				<kiosko value="C:\Documents and Settings\Administrador\Mis documentos\Sync\" />
+				<carousel value="4" />
+				
+<!-- 				<carousel value="4" /> -->
+<!-- 				<kiosko value="C:\Users\Sergio\Documents\Sync\" /> -->
+
+
+<!-- 				<kiosko value="C:\Users\as\Documents\Sync\" /> -->
+<!-- 				<carousel value="4" /> -->
+				
+				
+
+
+				<tituloversion value="Actualizaciones de Versión N° 8" />
+				<dataactualizacion  value="Estadísticas de profesor---Contacto con usuarios inactivos vía email---Nuevos ejercicios---Carousel de publicidad en modo inactividad---Muestra próximas actividades en modo inactividad" />
+
+				<debug value="true"/>
+			</appConfig>
+			<stage>
+				<name value="standAlone" />
+			</stage>
+			<debug>
+				<state value="true" />
+				<externalInterfaces value="console.debug" />
+			</debug>
+			<logger>
+				<state value="true" />
+				<url value="http://php.dev.hostarg.net/log/" />
+			</logger>
+		</main>
+	</base>
+	<stages>
+		<development>
+			<appKeys>
+				<url value="http://www.url.com/app/dev/" />
+			</appKeys>
+			<appConfig>			
+			</appConfig>
+			<debug>
+			</debug>
+			<logger>
+			</logger>
+		</development>
+		<standAlone>
+			<appKeys>						
+			</appKeys>
+			<appConfig>
+<!-- 				<url value="services"/>								  -->
+<!-- 				<test value="true"/> -->
+				<contextType value="standAlone"/>
+				<hasContext value="false"/>
+				<hasToEncode value="false"/>
+			</appConfig>
+			<debug>
+			</debug>
+			<logger>
+			</logger>
+		</standAlone>
+		<production>
+			<appKeys>
+				<url value="" />
+			</appKeys>
+			<appConfig>
+			</appConfig>
+			<debug>
+				<state value="false" />
+			</debug>
+			<log>
+			</log>
+		</production>
+	</stages>
+</config>
+
+
