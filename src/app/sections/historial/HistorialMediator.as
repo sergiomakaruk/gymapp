@@ -23,11 +23,11 @@ package app.sections.historial
 			super();
 		}
 				
-		/*override protected function onPageInit(e:Event=null):void{
+		override protected function onPageInit(e:Event=null):void{
 			
 			this.eventDispatcher.dispatchEvent(new CustomEvent(AppEvents.GET_FAKE_USER,onLoadPage));
 			//onLoadPage();
-		}*/
+		}
 		
 		private function onLoadPage():void{			
 			this.doTransference(new AppTokenDataTransferenceData(DataTransferenceTypes.RECUPERAR_MENU_RUTINA_BASE,[]),super.onPageInit);

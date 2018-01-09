@@ -2,12 +2,15 @@ package app.sections.rutina.menu
 {
 	import app.events.AppEvents;
 	
+	import flash.display.DisplayObject;
+	import flash.display.DisplayObjectContainer;
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
 	import sm.fmwk.ui.button.Button;
 	import sm.fmwk.ui.button.events.ButtonEvent;
+	import sm.utils.display.DPUtils;
 	import sm.utils.display.GetButton;
 	import sm.utils.events.CustomEvent;
 	
@@ -21,17 +24,35 @@ package app.sections.rutina.menu
 			var content:_menuEditarEjerciciosSP = new _menuEditarEjerciciosSP();
 			addChild(content);	
 			
+			var ch:Array = ['_btnElongacion','_btnFuncional','_btnRehabilitacion','_btnCardio','_btnTrenSuperior','_btnBiceps','_btnHombros','_btnTriceps','_btnDorsales','_btnPectorales','_btnZonaMedia','_btnAbdominales',
+				'_btnTrenInferior','_btnAbec','_btnCuadriceps','_btnIsquiotibiales','_btnGemelos','_btnGluteos','_btnBuscarEj','_btnGuardarCambios','_btnCancelar'];
+			
+			var childs:Vector.<DisplayObject> = DPUtils.getChilds(content,Button).reverse();
+			for(var i:uint=0;i<ch.length;i++){
+				var c:DisplayObjectContainer = content[ch[i]];
+				c.y = 48*i + 22;
+				c.getChildAt(0).height = 46;
+				c.getChildAt(0).y = -23;
+			}
+			
 			//addButton(content._btnFinalizar).delayTime = 2000;
 			
-			//addButton(content._btnTrenSuperior);
-			//addButton(content._btnTrenInferior);
+			//
+			//
+			addButton(content._btnElongacion);
+			addButton(content._btnFuncional);
+			addButton(content._btnRehabilitacion);
 			addButton(content._btnCardio);
+			//addButton(content._btnTrenSuperior).lock();
 			addButton(content._btnBiceps);
 			addButton(content._btnHombros);
 			addButton(content._btnTriceps);
+			
 			addButton(content._btnDorsales);
 			addButton(content._btnPectorales);
+			//addButton(content._btnZonaMedia).lock();
 			addButton(content._btnAbdominales);
+			//addButton(content._btnTrenInferior).lock();
 			addButton(content._btnAbec);
 			addButton(content._btnCuadriceps);
 			addButton(content._btnIsquiotibiales);
@@ -41,6 +62,8 @@ package app.sections.rutina.menu
 			
 			addButton(content._btnGuardarCambios);
 			addButton(content._btnCancelar);
+			
+			
 		}
 
 		override protected function onDonwn(event:Event):void
@@ -74,6 +97,9 @@ package app.sections.rutina.menu
 				case AppEvents.ISQUITIBIALES: params.filter = 10;params.text = "Tren Inferior: ISQUIOTIBIALES";break;
 				case AppEvents.GEMELOS: params.filter = 11;params.text = "Tren Inferior: GEMELOS";break;
 				case AppEvents.GLUTEOS: params.filter = 12;params.text = "Tren Inferior: GLÚTEOS";break;
+				case AppEvents.ELONGACION: params.filter = 13;params.text = "ELONGACIÓN";break;
+				case AppEvents.FUNCIONAL: params.filter = 14;params.text = "FUNCIONAL";break;
+				case AppEvents.REHABILITACION: params.filter = 15;params.text = "REHABILITACIÓN";break;
 				case '_btnBuscarEj':  params.filter = 100;params.text = "Búsqueda";break;
 				
 				case '_btnCancelar': params.action = AppEvents.CANCELAR_AGREGAR_POPUP_EVENT;break;	

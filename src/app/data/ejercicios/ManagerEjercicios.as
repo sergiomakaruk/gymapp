@@ -7,7 +7,7 @@ package app.data.ejercicios
 	
 	import sm.fmwk.data.core.ManagerDatas;
 	import sm.utils.display.DPUtils;
-	import sm.utils.display.DebugSprite;
+	//import sm.utils.display.DebugSprite;
 	
 	public class ManagerEjercicios extends ManagerDatas
 	{

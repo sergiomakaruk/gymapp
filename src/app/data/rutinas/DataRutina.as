@@ -308,7 +308,7 @@ package app.data.rutinas
 			
 			_content._datos2.text = "DNI: " + Model.socio.dni;	
 			_content._datos2.appendText("\n");
-			_content._datos2.appendText("Fecha Inicio: " + this.showFechaInicio());
+			_content._datos2.appendText("Fecha Renovación: " + this.showFechaRenovacion());
 		}
 		
 		public function completeHeaderAsBase(_content:*):void{

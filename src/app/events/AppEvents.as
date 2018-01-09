@@ -68,6 +68,9 @@ package app.events
 		public static const UPDATE_SUBMENU:String = 'updateSubMenu';
 		
 		public static const CARDIO:String = '_btnCardio';
+		public static const ELONGACION:String = '_btnElongacion';
+		public static const FUNCIONAL:String = '_btnFuncional';
+		public static const REHABILITACION:String = '_btnRehabilitacion';
 		//public static const TREN_SUPERIOR:String = '_btnTrenSuperior';
 		//public static const ZONA_MEDIA:String = '_btnZonaMedia';
 		//public static const TREN_INFERIOR:String = '_btnTrenInferior';

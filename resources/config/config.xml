@@ -13,11 +13,11 @@
 				<hasContext value="true"/> <!-- ------ for Loader context -->
 				<hasToEncode value="true"/>
 				
-				<kiosko value="C:\Documents and Settings\Administrador\Mis documentos\Sync\" />
-				<carousel value="4" />
-				
+<!-- 				<kiosko value="C:\Documents and Settings\Administrador\Mis documentos\Sync\" /> -->
 <!-- 				<carousel value="4" /> -->
-<!-- 				<kiosko value="C:\Users\Sergio\Documents\Sync\" /> -->
+				
+				<carousel value="4" />
+				<kiosko value="C:\Users\Sergio\Documents\Sync\" />
 
 
 <!-- 				<kiosko value="C:\Users\as\Documents\Sync\" /> -->

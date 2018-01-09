@@ -120,6 +120,9 @@ package app.data.ejercicios
 			return "";
 		}*/
 		
+		public function get serieToString():String{///pasa serie con ' de minuto para simular unidad de tiempo
+			return this.serie + "'";
+		}
 		
 		
 		public function get descansoToString():String{			
@@ -141,6 +144,10 @@ package app.data.ejercicios
 			else if(s == 0) return minuteStr;
 			
 			return  minuteStr + secondsStr;		
+		}
+		
+		public function get descansoToOriginal():uint{
+			return this.descanso / 60;
 		}
 		
 		public function toString():String{

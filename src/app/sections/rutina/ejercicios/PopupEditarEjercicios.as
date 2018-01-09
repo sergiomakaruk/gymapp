@@ -109,10 +109,20 @@ package app.sections.rutina.ejercicios
 			/*content._descanso_.value = Number(data.descanso.split("'")[0]);
 			isSegundos = data.descanso.indexOf("''") != -1;*/
 			
+			
+			
 			content._serie_.init("Serie");
-			content._carga_.init("carga");
+			content._carga_.init("Carga");			
 			content._repeticion_.init("Repetición");
 			content._descanso_.init("Descanso");
+			
+			content._tiempo_.init("Tiempo");
+			content._velocidad_.init("Velocidad");
+			content._inclinacion_.init("Inclinación");
+			content._nivel_.init("Nivel");
+			
+			updateSteepers();			
+			
 			
 			this.addEventListener(AppEvents.UPDATE_VALUES_EVENT,onUpdate);
 			
@@ -198,10 +208,9 @@ package app.sections.rutina.ejercicios
 			this.data = data;
 			image = DPUtils.swap(GetImage.getImage(Fmwk.appConfig('kiosko')+'images/'+data.sid+'.jpg',null),image); 
 			
-			content._serie_.value = data.serie;
-			content._carga_.value = data.carga;
-			content._repeticion_.value = data.repeticion;
-			content._descanso_.value = data.descanso;
+			
+			updateSteepers();			
+			
 			
 			//content._descanso_.value =  Number(data.descanso.split("'")[0]);
 			
@@ -211,16 +220,73 @@ package app.sections.rutina.ejercicios
 			timeline.play();
 		}
 		
+		private function updateSteepers():void{
+			if(this.data.grupoMuscular == 8){
+				content._tiempo_.visible = true;
+				content._velocidad_.visible = true;
+				content._inclinacion_.visible = true;
+				content._nivel_.visible = true;
+				
+				content._carga_.visible = false;
+				content._descanso_.visible = false;
+				content._serie_.visible = false;
+				content._repeticion_.visible = false;
+				
+				content._var1.text = "Tiempo";
+				content._var2.text = "Inclinación";
+				content._var3.text = "Velocidad";
+				content._var4.text = "Nivel";
+				
+				content._tiempo_.value = data.serie;
+				content._velocidad_.value = data.carga;
+				content._inclinacion_.value = data.repeticion;
+				content._nivel_.value = data.descansoToOriginal;
+				
+			}else
+			{
+				content._tiempo_.visible = false;
+				content._velocidad_.visible = false;
+				content._inclinacion_.visible = false;
+				content._nivel_.visible = false;
+				
+				content._carga_.visible = true;
+				content._descanso_.visible = true;
+				content._serie_.visible = true;
+				content._repeticion_.visible = true;
+				
+				content._var1.text = "Serie";
+				content._var2.text = "Repetición";
+				content._var3.text = "Carga";
+				content._var4.text = "Descanso";
+				
+				content._serie_.value = data.serie;
+				content._carga_.value = data.carga;
+				content._repeticion_.value = data.repeticion;
+				content._descanso_.value = data.descanso;
+			}
+		}
 		protected function onUpdate(event:CustomEvent):void
 		{
 			this.data.toSave = true;
-			//trace("updateValues(): ",currentVar);
-			switch(event.target.name){
-				case '_serie_':this.data.serie = uint(event.params);break;
-				case '_carga_':this.data.carga = Number(event.params);break;
-				case '_descanso_':this.data.descanso = uint(event.params);break;
-				case '_repeticion_':this.data.repeticion = uint(event.params);break;
+			if(this.data.grupoMuscular == 8){	
+				switch(event.target.name){
+					case '_tiempo_':this.data.serie = uint(event.params);break;
+					case '_velocidad_':this.data.carga = Number(event.params);break;
+					case '_nivel_':this.data.descanso = uint(event.params) * 60;break;
+					case '_inclinacion_':this.data.repeticion = uint(event.params);break;
+				}
+				
+			}else
+			{
+				switch(event.target.name){
+					case '_serie_':this.data.serie = uint(event.params);break;
+					case '_carga_':this.data.carga = Number(event.params);break;
+					case '_descanso_':this.data.descanso = uint(event.params);break;
+					case '_repeticion_':this.data.repeticion = uint(event.params);break;
+				}
 			}
+			//trace("updateValues(): ",currentVar);
+			
 			renderValues();
 			
 		}
@@ -233,10 +299,18 @@ package app.sections.rutina.ejercicios
 		
 		public function renderValues():void
 		{
-			content._serie.text = data.serie.toString();
-			content._carga.text = data.carga.toString();
-			content._repeticion.text = data.repeticion.toString();
-			content._descanso.text = data.descansoToString;
+			if(this.data.grupoMuscular == 8){				
+				content._carga.text = data.carga.toString();
+				content._repeticion.text = data.repeticion.toString();				
+				content._serie.text = data.serieToString;	
+				content._descanso.text = data.descansoToOriginal.toString();	
+			}else{
+				content._serie.text = data.serie.toString();
+				content._carga.text = data.carga.toString();
+				content._repeticion.text = data.repeticion.toString();
+				content._descanso.text = data.descansoToString;
+			}
+			
 	
 			var clip:ScaleUpButton;
 			switch(data.superseries)

@@ -67,7 +67,27 @@ package app.sections.rutina.ejercicios
 			content._repeticion.text = data.repeticion.toString();
 			content._descanso.text = data.descansoToString;	
 			
+			if(this._data.grupoMuscular == 8){
+				content._var1.text = "Tiempo";	
+				content._var2.text = "Velocidad";	
+				content._var3.text = "Inclinación";
+				content._var4.text = "Nivel";
+				content._serie.text = data.serieToString;	
+				content._descanso.text = data.descansoToOriginal.toString();	
+			}
+			
 			content._nombre.text = 	getName();	
+			if(this._data.sid == '1000') {
+				content._nombre.text = "";
+				content._var1.text = "";	
+				content._var2.text = "";	
+				content._var3.text = "";
+				content._var4.text = "";
+				content._serie.text = "";
+				content._carga.text = "";
+				content._repeticion.text = "";
+				content._descanso.text = "";	
+			}
 			
 			content._superseries._triangulo.visible = false;
 			content._superseries._equis.visible = false;

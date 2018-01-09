@@ -28,8 +28,8 @@
 	
 	<getVersionUpdateInfo value="detalle_de_actualizacion_de_version||csv|Cargando datos...|true"/>
 	<getAllUsers value="ActividadDeUsuarios||txt|Cargando datos...|true"/>
-	<getAllExercises value="staticws/ejercicios_2016|getEjercicios|csv|Cargando datos...|true"/>
-	<getInit value="staticws/getInit/index|getEjercicios|php|Cargando datos...|true"/>
+	<getAllExercises value="staticws/ejercicios_2018|getEjercicios|csv|Cargando datos.....|true"/>
+	<getInit value="staticws/getInit/index|getEjercicios|php|Cargando datos....|true"/>
 		
 	<getDisenio value="|data/disenioData|xml|Cargando datos..."/>	
 

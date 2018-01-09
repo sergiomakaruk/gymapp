@@ -99,7 +99,7 @@ package app.mediators
 			//section = AppSectionTypes.PERFIL_PROFE;
 			//section = AppSectionTypes.STATICS_PROFE;
 			//section = AppSectionTypes.EDIT_RUTINAS_BASE;
-			//section = AppSectionTypes.HISTORIAL_USUARIO;
+			section = AppSectionTypes.HISTORIAL_USUARIO;
 			//section = AppSectionTypes.VERSION_UPDATES_INFO;
 			
 			this.dispatch(new SectionEvent(SectionEvent.SECTION_CHANGE,section));

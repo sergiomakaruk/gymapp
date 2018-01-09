@@ -91,12 +91,23 @@ package app.sections.rutina.ejercicios
 
 		public function renderValues():void
 		{
-			content._nombre.text = 	getName();				
-			
+			content._nombre.text = 	getName();		
+
 			content._serie.text = data.serie.toString();
 			content._carga.text = data.carga.toString();
 			content._repeticion.text = data.repeticion.toString();
 			content._descanso.text = data.descansoToString;	
+			
+			if(this._data.grupoMuscular == 8){
+				content._var1.text = "Tiempo";	
+				content._var2.text = "Velocidad";	
+				content._var3.text = "Inclinación";
+				content._var4.text = "Nivel";
+				content._serie.text = data.serieToString;	
+				content._descanso.text = data.descansoToOriginal.toString();	
+			}
+			
+			
 			
 			content._dia._dia.text = "Día: " + data.dia.toString();
 			
